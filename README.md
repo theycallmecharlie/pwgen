@@ -13,4 +13,4 @@ $ python3 pypass.py 'length'
 ~~~~~
 Example:
 ~~~~~
-py pypass.py 16
+$ py pypass.py 16
