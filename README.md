@@ -1,5 +1,10 @@
 # pypass
  simple secure password generator
+ 
+## Requeriments
+~~~~~
+$ pip install -r requirements.txt
+~~~~~
 
 ## CLI
 ~~~~~
