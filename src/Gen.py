@@ -30,6 +30,6 @@ class Gen:
                 pw += random.choice(chars)
             if r > 0.6:
                 pw += str(random.randint(0, 9))
-            print(f'[+]{pw}')
+            print(f'\u001b[33m[\u001b[0m+\u001b[33m]\u001b[0m{pw}')
             pyperclip.copy(pw)
-        return print("[+] Copied to clipboard")
+        return print(u"[\u001b[32m+\u001b[0m] \u001b[32mCopied to clipboard.\u001b[0m")
