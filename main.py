@@ -18,4 +18,6 @@ def main():
         gen = Passphrase(12,args.verbose)
         gen.passphrase()
 if __name__=='__main__':
-    main()
+    try:
+        main()
+    except KeyboardInterrupt: print("PWgen has been stopped")
