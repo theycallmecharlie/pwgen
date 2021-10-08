@@ -11,13 +11,14 @@ def main():
     parser.add_argument('-l', '--length', help = 'Define password length, if not flagged, the default length is 8 chars', type = int, default = 8)
     parser.add_argument('-v', '--verbose', action='store_true')
     args = parser.parse_args()
-    if(args.password):
+    if(args.password): 
         gen = Password(args.length,args.verbose)
         gen.newpw()
-    if(args.passphrase):
+    if(args.passphrase): 
         gen = Passphrase(12,args.verbose)
         gen.passphrase()
+    else: parser.print_help()
 if __name__=='__main__':
-    try:
-        main()
+    try:main()
     except KeyboardInterrupt: print("PWgen has been stopped")
+    except Exception as err: print(f"Error: {err}")
