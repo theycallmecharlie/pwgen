@@ -1,6 +1,10 @@
 #encoding=utf8
 #!/usr/bin/python3
 import argparse
+import platform
+import sys
+import os
+from src.Color import *
 from src.Password import *
 from src.Passphrase import *
 
@@ -17,8 +21,16 @@ def main():
     if(args.passphrase): 
         gen = Passphrase(args.length,args.verbose)
         gen.passphrase()
-    else: parser.print_help()
+    
 if __name__=='__main__':
+    if sys.platform == 'linux': 
+        import apt
+        pkg = apt.Cache()
+        if pkg['xclip'].is_installed: pass
+        else:
+            print(f"[{Color.ALERT}!{Color.WHITE}]{Color.ALERT}You don't have 'xclip' package to copy clipboard{Color.WHITE}")
+            try: os.system("sudo apt-get install xclip")
+            except Exception as err: print(f"Error: {err}")
     try:main()
     except KeyboardInterrupt: print("PWgen has been stopped")
     except Exception as err: print(f"Error: {err}")
