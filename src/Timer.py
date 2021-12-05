@@ -12,7 +12,7 @@ class Timer():
 
     def graph():
         a = ''        
-        for i in range(15,0,-1):
+        for i in range(30,0,-1):
             print(f"{Color.WHITE}[{Color.ALERT}!{Color.WHITE}]{Color.ALERT} Clearing the clipboard in {i} seconds.{Color.WHITE}", end='\r')
             time.sleep(1)
             a += f'{Color.DANGER}█{Color.WHITE}'
