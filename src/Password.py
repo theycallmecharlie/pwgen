@@ -1,6 +1,7 @@
 # encoding=utf8
 #!/usr/bin/python3
 import random
+
 import pyperclip
 import string
 from src.Timer import *
@@ -13,11 +14,12 @@ class Password:
         self.verbose = verbose
 
     def newpw(self):
-        password = ""
-        for i in range(self.length):
+        chars = []
+        for l in range(self.length): 
             punctuation, digit, ascii = random.choice(string.punctuation), random.choice(string.digits), random.choice(string.ascii_letters)
-            password += random.choice([punctuation, digit, ascii])
+            chars.append(random.choice([punctuation, digit, ascii]))
         print(f"{Color.WHITE}[{Color.GREEN}+{Color.WHITE}]{Color.GREEN} Password generated.{Color.WHITE}")
+        password = str(''.join(chars))
         pyperclip.copy(password)
         print(f"{Color.WHITE}[{Color.GREEN}+{Color.WHITE}]{Color.GREEN} Copied to clipboard.{Color.WHITE}", end="\n")
         if(self.verbose):
