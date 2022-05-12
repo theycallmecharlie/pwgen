@@ -11,15 +11,19 @@ class Passphrase:
         self.verbose = verbose
 
     def passphrase(self):
-        passphrase = ''
+        words = []
+        passphrase = []
         with open('wl.txt', 'r') as f:
             words = f.readlines()
             f.close()
-        for i in range(self.length):
-            passphrase += random.choice(words).replace("\n", " ")
+        for l in range(self.length):
+            passphrase.append(random.choice(words).replace("\n", " "))
+        passphrase = ''.join(passphrase).replace("\n", "")
         print(f"{Color.WHITE}[{Color.GREEN}+{Color.WHITE}]{Color.GREEN} Passphrase generated.{Color.WHITE}")
         pyperclip.copy(passphrase)
         print(f"{Color.WHITE}[{Color.GREEN}+{Color.WHITE}]{Color.GREEN} Copied to clipboard.{Color.WHITE}", end="\n")
-        print(f"[{Color.BLUE}Passphrase{Color.WHITE}]: {passphrase}{Color.WHITE}", end="\n")
+        if(self.verbose):
+            print(f"[{Color.BLUE}Passphrase{Color.WHITE}]: {passphrase}{Color.WHITE}", end="\n")
         Timer.graph()
         return print(f"{Color.WHITE}[{Color.HEADER}-{Color.WHITE}] Clipboard cleared.")
+
