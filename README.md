@@ -8,9 +8,9 @@ $ pip install -r requirements.txt
 
 ## CLI
 ~~~~~
-$ py pypass.py 'length'
-$ python3 pypass.py 'length'
+$ py main.py 'length'
+$ python3 main.py 'length'
 ~~~~~
 Example:
 ~~~~~
-$ py pypass.py 16
+$ py main.py 16
