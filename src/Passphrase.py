@@ -1,6 +1,6 @@
 # encoding=utf8
 #!/usr/bin/python3
-import random
+import secrets
 import pyperclip
 from src.Timer import *
 
@@ -17,7 +17,7 @@ class Passphrase:
             words = f.readlines()
             f.close()
         for l in range(self.length):
-            passphrase.append(random.choice(words).replace("\n", " "))
+            passphrase.append(secrets.choice(words).replace("\n", " "))
         passphrase = ''.join(passphrase).replace("\n", "")
         print(f"{Color.WHITE}[{Color.GREEN}+{Color.WHITE}]{Color.GREEN} Passphrase generated.{Color.WHITE}")
         pyperclip.copy(passphrase)
