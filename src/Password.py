@@ -1,6 +1,6 @@
 # encoding=utf8
 #!/usr/bin/python3
-import random
+import secrets
 
 import pyperclip
 import string
@@ -16,8 +16,8 @@ class Password:
     def newpw(self):
         chars = []
         for l in range(self.length): 
-            punctuation, digit, ascii = random.choice(string.punctuation), random.choice(string.digits), random.choice(string.ascii_letters)
-            chars.append(random.choice([punctuation, digit, ascii]))
+            punctuation, digit, ascii = secrets.choice(string.punctuation), secrets.choice(string.digits), secrets.choice(string.ascii_letters)
+            chars.append(secrets.choice([punctuation, digit, ascii]))
         print(f"{Color.WHITE}[{Color.GREEN}+{Color.WHITE}]{Color.GREEN} Password generated.{Color.WHITE}")
         password = str(''.join(chars))
         pyperclip.copy(password)
